@@ -83,7 +83,4 @@ public class Orden {
     public void setArticulos(List<ArticuloPedido> articulos) {
         this.articulos = articulos;
     }
-
-    
-    
 }
