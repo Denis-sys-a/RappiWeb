@@ -1,7 +1,9 @@
 package com.rappi.BackendRappi.models;
 
-import jakarta.persistence.*;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "articulos_pedido")
@@ -15,13 +17,17 @@ public class ArticuloPedido {
 
     @ManyToOne
     @JoinColumn(name = "producto_id")
+    @JsonIgnoreProperties({ "descripcion", "precio", "imagenUrl", "restaurante" })
     private Producto producto;
 
     @ManyToOne
     @JoinColumn(name = "orden_id")
+    @JsonIgnoreProperties({ "articulos", "usuario", "restaurante" })
+    @JsonIgnore
     private Orden orden;
 
-    public ArticuloPedido() {}
+    public ArticuloPedido() {
+    }
 
     public ArticuloPedido(Integer cantidad, Producto producto, Orden orden) {
         this.cantidad = cantidad;
@@ -61,6 +67,4 @@ public class ArticuloPedido {
         this.orden = orden;
     }
 
-    
-    
 }

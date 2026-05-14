@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name = "ordenes")
@@ -18,16 +19,19 @@ public class Orden {
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
+    @JsonIgnoreProperties({ "email", "password" })
     private Usuario usuario;
 
     @ManyToOne
     @JoinColumn(name = "restaurante_id")
+    @JsonIgnoreProperties({ "direccion", "imagenUrl", "productos" })
     private Restaurante restaurante;
 
     @OneToMany(mappedBy = "orden", cascade = CascadeType.ALL)
     private List<ArticuloPedido> articulos;
 
-    public Orden() {}
+    public Orden() {
+    }
 
     public Orden(LocalDateTime fecha, Double total, Usuario usuario, Restaurante restaurante) {
         this.fecha = fecha;

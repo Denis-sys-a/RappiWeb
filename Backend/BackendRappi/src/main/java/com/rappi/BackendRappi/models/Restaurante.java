@@ -3,10 +3,12 @@ package com.rappi.BackendRappi.models;
 import jakarta.persistence.*;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "restaurantes")
 public class Restaurante {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -15,10 +17,12 @@ public class Restaurante {
     private String direccion;
     private String imagenUrl;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "restaurante", cascade = CascadeType.ALL)
     private List<Producto> productos;
 
-    public Restaurante() {}
+    public Restaurante() {
+    }
 
     public Restaurante(String nombre, String direccion, String imagenUrl) {
         this.nombre = nombre;
@@ -66,5 +70,4 @@ public class Restaurante {
         this.productos = productos;
     }
 
-    
 }

@@ -1,5 +1,7 @@
 package com.rappi.BackendRappi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,9 +19,11 @@ public class Producto {
 
     @ManyToOne
     @JoinColumn(name = "restaurante_id")
+    @JsonIgnoreProperties({ "productos" })
     private Restaurante restaurante;
 
-    public Producto() {}
+    public Producto() {
+    }
 
     public Producto(String nombre, String descripcion, Double precio, String imagenUrl, Restaurante restaurante) {
         this.nombre = nombre;
