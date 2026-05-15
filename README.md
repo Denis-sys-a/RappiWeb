@@ -1,4 +1,4 @@
-Backend desarrollado con **Spring Boot** y Frontend con **Shadcn + React**
+- Backend desarrollado con **Spring Boot** y Frontend con **Shadcn + React**
 
 ### Antes de ejecutar el proyecto es crear la base de datos en el MySQL Workbench
 
@@ -23,10 +23,10 @@ spring.jpa.properties.hibernate.format_sql=true
 
 ### Dependencias en la descarga:
 
-> -Spring Data JPA
-> -Spring Web
-> -Lombok
-> -MySQL Driver
+- Spring Data JPA
+- Spring Web
+- Lombok
+- MySQL Driver
 
 ### Ejecutar Backend
 
@@ -41,21 +41,21 @@ cd Backend/BackendRappi
 
 ### Instalar todas las dependencias del proyecto
 
-npm install
+- npm install
 
 ### Componentes de shadcn usados
 
-npx shadcn@latest add button
-npx shadcn@latest add input
-npx shadcn@latest add label
-npx shadcn@latest add card
-npx shadcn@latest add skeleton
-npx shadcn@latest add sidebar-08
-npx shadcn@latest add login-02
+- npx shadcn@latest add button
+- npx shadcn@latest add input
+- npx shadcn@latest add label
+- npx shadcn@latest add card
+- npx shadcn@latest add skeleton
+- npx shadcn@latest add sidebar-08
+- npx shadcn@latest add login-02
 
 ### Par los iconos
 
-npm install lucide-react
+- npm install lucide-react
 
 ### Ejecutar Frontend
 
