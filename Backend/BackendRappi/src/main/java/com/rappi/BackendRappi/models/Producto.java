@@ -1,6 +1,6 @@
 package com.rappi.BackendRappi.models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.*;
 
@@ -17,9 +17,9 @@ public class Producto {
     private Double precio;
     private String imagenUrl;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "restaurante_id")
-    @JsonIgnoreProperties({ "productos" })
     private Restaurante restaurante;
 
     public Producto() {

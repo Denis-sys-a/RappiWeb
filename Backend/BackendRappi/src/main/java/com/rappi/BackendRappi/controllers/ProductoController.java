@@ -1,4 +1,5 @@
 package com.rappi.BackendRappi.controllers;
+
 import com.rappi.BackendRappi.models.Producto;
 import com.rappi.BackendRappi.repositories.ProductoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import java.util.List;
 @RequestMapping("/productos")
 @CrossOrigin(origins = "*")
 public class ProductoController {
-    
+
     @Autowired
     private ProductoRepository productoRepository;
 
@@ -38,5 +39,10 @@ public class ProductoController {
     @DeleteMapping("/{id}")
     public void delete(@PathVariable Long id) {
         productoRepository.deleteById(id);
+    }
+
+    @GetMapping("/restaurante/{restauranteId}")
+    public List<Producto> getByRestaurante(@PathVariable Long restauranteId) {
+        return productoRepository.findByRestauranteId(restauranteId);
     }
 }

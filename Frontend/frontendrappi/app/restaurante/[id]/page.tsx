@@ -28,10 +28,12 @@ export default function RestaurantePage() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    fetch(`http://localhost:8080/restaurantes/${id}`)
-      .then((res) => res.json())
-      .then((data) => setRestaurante(data))
-      .finally(() => setLoading(false))
+    Promise.all([
+      fetch(`http://localhost:8080/restaurantes/${id}`).then(r => r.json()),
+      fetch(`http://localhost:8080/productos/restaurante/${id}`).then(r => r.json())
+    ]).then(([rest, prods]) => {
+      setRestaurante({ ...rest, productos: prods })
+    }).finally(() => setLoading(false))
   }, [id])
 
   if (loading) return (
